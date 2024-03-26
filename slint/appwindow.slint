@@ -6,24 +6,20 @@ export component AppWindow inherits Window {
     TabWidget {
         Tab {
             title: "Play";
-            GridLayout {
-                Row {
-                    VerticalLayout {
-                        Button {
-                            text: "Game 1";
-                        }
-                        Button {
-                            text: "Game 2";
-                        }
-                        Button {
-                            text: "Game 3";
-                        }
+            HorizontalLayout {
+                VerticalLayout {
+                    Button {
+                        text: "Game 1";
+                    }
+                    Button {
+                        text: "Game 2";
+                    }
+                    Button {
+                        text: "Game 2";
                     }
                 }
-                Row {
-                    Button {
-                        text: "Play";
-                    }
+                Button {
+                    text: "Play";
                 }
             }
         }
