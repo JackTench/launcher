@@ -1,6 +1,37 @@
-import { Button, LineEdit } from "std-widgets.slint";
+import { TabWidget, Button, LineEdit } from "std-widgets.slint";
 
 export component AppWindow inherits Window {
     width: 800px;
     height: 600px;
+    TabWidget {
+        Tab {
+            title: "Play";
+            GridLayout {
+                Row {
+                    VerticalLayout {
+                        Button {
+                            text: "Game 1";
+                        }
+                        Button {
+                            text: "Game 2";
+                        }
+                        Button {
+                            text: "Game 3";
+                        }
+                    }
+                }
+                Row {
+                    Button {
+                        text: "Play";
+                    }
+                }
+            }
+        }
+        Tab {
+            title: "Manage";
+            GridLayout {
+
+            }
+        }
+    }
 }
