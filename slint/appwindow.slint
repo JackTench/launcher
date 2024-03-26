@@ -1,4 +1,4 @@
-import { TabWidget, Button } from "std-widgets.slint";
+import { TabWidget, Button, ListView } from "std-widgets.slint";
 
 export component AppWindow inherits Window {
     width: 800px;
@@ -8,14 +8,15 @@ export component AppWindow inherits Window {
             title: "Play";
             HorizontalLayout {
                 VerticalLayout {
-                    Button {
-                        text: "Game 1";
-                    }
-                    Button {
-                        text: "Game 2";
-                    }
-                    Button {
-                        text: "Game 2";
+                    ListView {
+                        width: 200px;
+                        for data in [
+                            { text: "Game 1" },
+                            { text: "Game 2" },
+                            { text: "Game 3" },
+                        ] : Button {
+                            text: data.text;
+                        }
                     }
                 }
                 Button {
