@@ -1,8 +1,12 @@
 import { TabWidget, Button, ListView } from "std-widgets.slint";
 
 export component AppWindow inherits Window {
+
+    in property <int> number-of-buttons;
+
     width: 800px;
     height: 600px;
+
     TabWidget {
         Tab {
             title: "Play";
@@ -10,12 +14,8 @@ export component AppWindow inherits Window {
                 VerticalLayout {
                     ListView {
                         width: 200px;
-                        for data in [
-                            { text: "Game 1" },
-                            { text: "Game 2" },
-                            { text: "Game 3" },
-                        ] : Button {
-                            text: data.text;
+                        for data in number-of-buttons : Button {
+                            text: "Game";
                         }
                     }
                 }

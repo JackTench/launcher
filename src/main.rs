@@ -1,5 +1,9 @@
 slint::include_modules!();
 
 fn main() {
-    AppWindow::new().unwrap().run().unwrap();
+    let window = AppWindow::new().unwrap();
+
+    window.set_number_of_buttons(5);
+
+    window.run().unwrap();
 }
