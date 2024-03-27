@@ -14,14 +14,16 @@ fn main() {
     let window = AppWindow::new().unwrap();
 
     // Create game for testing purposes. Just runs neofetch.
-    let mut games: Vec<db::Game> = Vec::new();
-    games.push(db::Game {
+    let neofetch = db::Game {
         id: 1,
-        name: String::from("Test Game"),
-        platform: String::from("PC"),
+        name: String::from("Neofetch"),
+        platform: String::from("Linux"),
         launch: String::from("neofetch"),
         times: 1,
-    });
+    };
+    database.add_game(&neofetch);
+    let games: Vec<db::Game> = database.get().unwrap();
+    
 
     // Get list of games to send to Slint to generate buttons.
     let mut game_names: Vec<String> = vec![];
