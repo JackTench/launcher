@@ -24,4 +24,11 @@ impl Database {
         self.conn.execute_batch(include_str!("sql/schema.sql")).unwrap();
     }
 
+    pub fn add_game(&self, game: &Game) {
+        self.conn.execute(
+            include_str!("sql/new_game.sql"),
+            rusqlite::params![game.name, game.platform, game.launch, game.times],
+        ).unwrap();
+    }
+
 }
