@@ -1,10 +1,16 @@
 mod db;
 
+use db::Database;
 use slint::{ModelRc, SharedString, VecModel};
 
 slint::include_modules!();
 
 fn main() {
+
+    // Create app database.
+    let database = Database::new().unwrap();
+    database.create_table();
+
     let window = AppWindow::new().unwrap();
 
     // Create game for testing purposes. Just runs neofetch.
