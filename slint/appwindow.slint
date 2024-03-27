@@ -1,0 +1,35 @@
+import { TabWidget, Button, ListView } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+
+    //in property <int> number-of-buttons;
+    in property <[string]> games;
+
+    width: 800px;
+    height: 600px;
+
+    TabWidget {
+        Tab {
+            title: "Play";
+            HorizontalLayout {
+                VerticalLayout {
+                    ListView {
+                        width: 200px;
+                        for game in games : Button {
+                            text: game;
+                        }
+                    }
+                }
+                Button {
+                    text: "Play";
+                }
+            }
+        }
+        Tab {
+            title: "Manage";
+            GridLayout {
+
+            }
+        }
+    }
+}
