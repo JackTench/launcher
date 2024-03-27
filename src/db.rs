@@ -44,11 +44,10 @@ impl Database {
         self.conn.execute_batch(include_str!("sql/schema.sql")).unwrap();
     }
 
-    pub fn add_game(&self, game: &Game) {
+    pub fn add_game(&self, name: String, platform: String, launch: String, times: i32) {
         self.conn.execute(
             include_str!("sql/new_game.sql"),
-            rusqlite::params![game.name, game.platform, game.launch, game.times],
+            rusqlite::params![name, platform, launch, times],
         ).unwrap();
     }
-
 }

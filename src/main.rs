@@ -14,14 +14,12 @@ fn main() {
     let window = AppWindow::new().unwrap();
 
     // Create game for testing purposes. Just runs neofetch.
-    let neofetch = db::Game {
-        id: 1,
-        name: String::from("Neofetch"),
-        platform: String::from("Linux"),
-        launch: String::from("neofetch"),
-        times: 1,
-    };
-    database.add_game(&neofetch);
+    database.add_game(
+        String::from("Neofetch"),
+        String::from("Linux"),
+        String::from("neofetch"),
+        1
+    );
     let games: Vec<db::Game> = database.get().unwrap();
     
 
