@@ -18,7 +18,6 @@ fn main() {
         String::from("Neofetch"),
         String::from("Linux"),
         String::from("neofetch"),
-        1
     );
     let games: Vec<db::Game> = database.get().unwrap();
     
