@@ -20,4 +20,9 @@ impl Database {
         Ok(Database { conn })
     }
 
+    pub fn create_table(&self) -> Result<()> {
+        self.conn.execute_batch(include_str!("sql/schema.sql"))?;
+        Ok(())
+    }
+
 }
