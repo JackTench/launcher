@@ -1,21 +1,15 @@
+mod db;
+
 use slint::{ModelRc, SharedString, VecModel};
 
 slint::include_modules!();
-
-struct Game {
-    id: i32,
-    name: String,
-    platform: String,
-    launch: String,
-    times: i32,
-}
 
 fn main() {
     let window = AppWindow::new().unwrap();
 
     // Create game for testing purposes. Just runs neofetch.
-    let mut games: Vec<Game> = Vec::new();
-    games.push(Game {
+    let mut games: Vec<db::Game> = Vec::new();
+    games.push(db::Game {
         id: 1,
         name: String::from("Test Game"),
         platform: String::from("PC"),
