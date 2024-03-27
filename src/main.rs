@@ -1,5 +1,4 @@
 use slint::{ModelRc, SharedString, VecModel};
-use std::rc::Rc;
 
 slint::include_modules!();
 
