@@ -19,7 +19,9 @@ impl Database {
         let conn = Connection::open("launcher.db")?;
         Ok(Database { conn })
     }
-
+    
+    // Get all games in the database.
+    // Returns a vector of the Game struct.
     pub fn get(&self) -> Result<Vec<Game>> {
         let mut statement = self.conn.prepare(
             include_str!("sql/get_all.sql")
@@ -40,10 +42,12 @@ impl Database {
         Ok(results)
     }
 
+    // Creates the schema in the database on first run.
     pub fn create_table(&self) {
         self.conn.execute_batch(include_str!("sql/schema.sql")).unwrap();
     }
 
+    // Add game to database.
     pub fn add_game(&self, name: String, platform: String, launch: String) {
         self.conn.execute(
             include_str!("sql/new_game.sql"),

@@ -11,8 +11,10 @@ fn main() {
     let database = Database::new().unwrap();
     database.create_table();
 
+    // Create slint window.
     let window = AppWindow::new().unwrap();
 
+    // Init vector of games.
     let games: Vec<db::Game> = database.get().unwrap();
     
     // Get list of games to send to Slint to generate buttons.
