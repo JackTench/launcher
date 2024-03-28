@@ -1,1 +1,1 @@
-INSERT INTO games (name, platform, launch, times) VALUES (?1, ?2, ?3, ?4);
+INSERT OR IGNORE INTO games (name, platform, launch, times) VALUES (?1, ?2, ?3, ?4);

@@ -3,5 +3,6 @@ CREATE TABLE IF NOT EXISTS games (
     name TEXT NOT NULL,
     platform TEXT NOT NULL,
     launch TEXT NOT NULL,
-    times INTEGER NOT NULL
+    times INTEGER NOT NULL,
+    CONSTRAINT unique_game UNIQUE (name, platform)
 );
