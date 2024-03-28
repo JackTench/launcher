@@ -1,9 +1,10 @@
-import { TabWidget, Button, ListView } from "std-widgets.slint";
+import { TabWidget, Button, ListView, LineEdit } from "std-widgets.slint";
 
 export component AppWindow inherits Window {
 
-    //in property <int> number-of-buttons;
     in property <[string]> games;
+
+    callback add-game(string, string, string);
 
     width: 800px;
     height: 600px;
@@ -28,7 +29,21 @@ export component AppWindow inherits Window {
         Tab {
             title: "Manage";
             GridLayout {
-
+                name := LineEdit {
+                    placeholder-text: "Name";
+                }
+                platform := LineEdit {
+                    placeholder-text: "Platform";
+                }
+                launch := LineEdit {
+                    placeholder-text: "Launch Command";
+                }
+                Button {
+                    text: "Add to library";
+                    clicked => {
+                        root.add-game(name.text, platform.text, launch.text);
+                    }
+                }
             }
         }
     }
