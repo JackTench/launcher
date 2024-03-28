@@ -27,7 +27,6 @@ fn main() {
     // Add game via slint GUI.
     window.on_add_game(move |name, platform, launch| {
         database.add_game(String::from(name.clone()), String::from(platform.clone()), String::from(launch.clone()));
-        println!("Added {} {} {}", String::from(name.clone()), String::from(platform.clone()), String::from(launch.clone()))
     });
 
     window.run().unwrap();
