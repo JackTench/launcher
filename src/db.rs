@@ -1,4 +1,5 @@
 use rusqlite::{Connection, Result};
+use slint::{ModelRc, SharedString, VecModel};
 
 pub struct Game {
     pub id: i32,
@@ -54,4 +55,14 @@ impl Database {
             rusqlite::params![name, platform, launch, 0],
         ).unwrap();
     }
+}
+
+pub fn push_games(game_vector: Vec<Game>) -> ModelRc<SharedString> {
+    let mut game_names: Vec<String> = vec![];
+    for game in game_vector {
+        game_names.push(game.name);
+    }
+    let game_names_ss: Vec<SharedString> = game_names.into_iter().map(Into::into).collect();
+    let game_names_rc: ModelRc<SharedString> = ModelRc::new(VecModel::from(game_names_ss));
+    game_names_rc
 }
